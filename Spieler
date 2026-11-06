@@ -1,5 +1,29 @@
-class Spieler:
+from abc import ABC, abstractmethod
 
-    def __init__(self,name,spielfeld):
-        self.name = name
-        self.spielfeld = spielfeld
+
+class Spieler(ABC):
+
+    def __init__(self, name, spielfeld):
+        self._name = name
+        self._spielfeld = spielfeld
+
+    def get_name(self):
+        return self._name
+
+    def get_spielfeld(self):
+        return self._spielfeld
+
+    @abstractmethod
+    def waehle_ziel(self):
+        pass
+
+
+class ComputerSpieler(Spieler):
+
+    def __init__(self, name, spielfeld, strategie):
+        super().__init__(name, spielfeld)
+        self.__strategie = strategie
+
+    def waehle_ziel(self):
+        
+        return self.__strategie.waehle_ziel(self._spielfeld)
