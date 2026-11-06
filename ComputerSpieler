@@ -1,0 +1,9 @@
+class ComputerSpieler(Spieler):
+
+    def __init__(self, name, spielfeld, strategie):
+        super().__init__(name, spielfeld)
+        self.__strategie = strategie
+
+    def waehle_ziel(self):
+        
+        return self.__strategie.waehle_ziel(self._spielfeld)
