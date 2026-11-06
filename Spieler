@@ -1,1 +1,5 @@
-'
+class Spieler:
+
+    def __init__(self,name,spielfeld):
+        self.name = name
+        self.spielfeld = spielfeld
